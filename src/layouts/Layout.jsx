@@ -5,6 +5,7 @@ import { AuthContext } from "../components/ProviderContext/AuthProvider";
 import Navber from "../components/Navber";
 import Banner from "../components/Banner";
 import Marquee from "react-fast-marquee";
+import Footer from "../components/Footer/Footer";
 
 const Layout = () => {
   const { user } = useContext(AuthContext);
@@ -12,9 +13,9 @@ const Layout = () => {
     <div className="text-white">
       {user && (
          <p className="bg-black text-white text-3xl font-bold text-center py-3">
-         {/* <Marquee>
+         <Marquee>
          <p> Welcome {user?.displayName}</p>
-       </Marquee> */}
+       </Marquee>
         </p>
        
       )}
@@ -22,6 +23,7 @@ const Layout = () => {
         <Navber></Navber>
 
         <Outlet></Outlet>
+        <Footer></Footer>
       </div>
     </div>
   );

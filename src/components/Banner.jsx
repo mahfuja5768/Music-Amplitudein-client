@@ -1,10 +1,9 @@
-
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
     <div className="grid lg:grid-cols-5 px-3">
       <div className="lg:col-span-4 ">
-        
         <div className="carousel w-full ">
           <div id="slide1" className="carousel-item relative w-full">
             <img
@@ -57,15 +56,17 @@ const Banner = () => {
         </div>
       </div>
       <div className="my-24 mx-5">
-        <h4 className="flex uppercase text-red  font-bold">ToNight</h4>
-        <h2 className="flex uppercase text-3xl font-medium">Rong Dhonu</h2>
+        <h4 className="flex   font-bold">
+          Explore upcoming Muse concerts and events in your city or worldwide.
+          Stay in the loop with the latest tour dates and venues.
+        </h4>
+        <h2 className="flex uppercase text-3xl text-red font-medium">Go Go Go</h2>
         <div className="flex items-start flex-col gap-5 my-6">
-          <button className="btn bg-red text-white rounded-full font-medium px-6 uppercase py-2">
-            Buy Ticket
-          </button>
+        
+          <Link to='/shows'>
           <button className="btn font-bold bg-transparent border-2 border-red rounded-full px-6 uppercase py-2">
-            Read more
-          </button>
+           See Shows
+          </button></Link>
         </div>
       </div>
     </div>
