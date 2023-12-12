@@ -1,8 +1,8 @@
-# React + Vite
+## Website name- Music-Amplitudein
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Website live Link- https://music-amplitudein.netlify.app/
+### Server side code link- https://github.com/mahfuja5768/Music-Amplitudein-server
 
-Currently, two official plugins are available:
+##technoligies: Node.js, JWT , MongoDB, NPM, Router ,React.js, Express.js, , Tailwind,
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  The music show ticket counter facilitates ticket purchases, allowing buyers to acquire tickets, while administrators have the capability to add new shows to the platform, enhancing the overall user experience.
