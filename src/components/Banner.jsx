@@ -58,7 +58,7 @@ const Banner = () => {
       <div className="my-24 mx-5">
         <h4 className="flex   font-bold">
           Explore upcoming Muse concerts and events in your city or worldwide.
-          Stay in the loop with the latest tour dates and venues.
+          Stays in the loop with the latest tour dates and venues.
         </h4>
         <h2 className="flex uppercase text-3xl text-red font-medium">Go Go Go</h2>
         <div className="flex items-start flex-col gap-5 my-6">
