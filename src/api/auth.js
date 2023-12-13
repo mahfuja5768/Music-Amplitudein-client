@@ -16,6 +16,18 @@ export const saveUser = async (user) => {
   return data;
 };
 
+export const getDetails = async (id) => {
+  // console.log(user)
+const { data } = await axiosSecure.get(`/shows/${id}`);
+return data;
+};
+
+export const manageShows = async (id) => {
+  // console.log(user)
+const { data } = await axiosSecure.get(`/shows/${id}`);
+return data;
+};
+
 //clear token from client side
 export const clearToken = async () => {
   localStorage.removeItem("access-token");

@@ -1,20 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
 import Title from "../../components/hooks/Title";
 import ManageShow from "./ManageShow";
+import { manageShows } from "../../api/auth";
 
 const ManageShows = () => {
+
   const { data, isError, error, isPending, refetch } = useQuery({
     queryKey: ["shows"],
     queryFn: async () => {
-      const data = await fetch(
-        "https://music-amplitudein-server.vercel.app/shows",
-        {
-          credentials: "include",
-        }
-      );
-      return await data.json();
+      const res = await manageShows();
+      console.log(res.data);
+      return res.data;
     },
   });
+
   //   console.log(data);
   if (isPending) {
     return (

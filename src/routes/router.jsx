@@ -15,6 +15,7 @@ import ShowsDetails from "../pages/shows/ShowsDetails";
 import PrivateRoute from "./PrivateRoute";
 import ManageShows from "../pages/dashboard/ManageShows";
 import UpdateShow from "../pages/dashboard/UpdateShow";
+import { getDetails } from "../api/auth";
 
 const router = createBrowserRouter([
   {
@@ -37,18 +38,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        loader: ({ params }) =>
-          fetch(
-            `https://music-amplitudein-server.vercel.app/shows/${params.id}`,
-            {
-              credentials: "include",
-            }
-          ),
         element: (
           <PrivateRoute>
             <ShowsDetails></ShowsDetails>
           </PrivateRoute>
         ),
+        loader: ({ params }) => getDetails(params.id),
       },
       {
         path: "/login",
