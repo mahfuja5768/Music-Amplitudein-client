@@ -40,7 +40,12 @@ const Login = () => {
       return navigate(location?.state ? location.state : "/");
     } catch (error) {
       console.log(error);
-      // toast.error(error?.message);
+      Swal.fire({
+        title: "Oops!",
+        text: `${error.message}`,
+        icon: "error",
+        confirmButtonText: "Done",
+      });
     }
   };
 

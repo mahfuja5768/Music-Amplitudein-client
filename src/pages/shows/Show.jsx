@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../components/ProviderContext/AuthProvider";
+import axiosSecure from "../../api";
 
 const Show = ({ show }) => {
   console.log(show);
@@ -20,8 +21,7 @@ const Show = ({ show }) => {
       email: user?.email,
     };
     // console.log(ticket);
-    axios
-      .post("https://music-amplitudein-server.vercel.app/cartTickets", ticket)
+    axiosSecure.post("/cartTickets", ticket)
       .then((res) => {
         // console.log(res.data);
         Swal.fire({

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
+import axiosSecure from "../api";
 
 const YourTicket = ({ tickets, refetch }) => {
   const {
@@ -18,12 +19,9 @@ const YourTicket = ({ tickets, refetch }) => {
   const handleDelete = (_id) => {
     console.log(_id);
 
-    axios
+    axiosSecure
       .delete(
-        `https://music-amplitudein-server.vercel.app/cartTickets/${_id}`,
-        {
-          withCredentials: true,
-        }
+        `/cartTickets/${_id}`,
       )
       .then((res) => {
         console.log(res.data);

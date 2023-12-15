@@ -1,15 +1,15 @@
 import { useLoaderData, useNavigate, useNavigation } from "react-router-dom";
 import Title from "../../components/hooks/Title";
 import Swal from "sweetalert2";
-import axios from "axios";
+import axiosSecure from "../../api";
 
 const UpdateShow = () => {
   const navigation = useNavigation();
-  console.log(navigation);
+  // console.log(navigation);
   const goTo = useNavigate();
 
   const [data] = useLoaderData();
-  console.log(data);
+  // console.log(data);
   if (navigation.loading == "loading") {
     return <p>Loading....</p>;
   }
@@ -39,11 +39,7 @@ const UpdateShow = () => {
     };
     console.log(updatedData);
 
-    const res = await axios.put(
-      `https://music-amplitudein-server.vercel.app/shows/${_id}`,
-      updatedData,
-      { withCredentials: true }
-    );
+    const res = await axiosSecure.put(`/shows/${_id}`, updatedData);
 
     const data = await res.data;
     if (data.modifiedCount > 0) {

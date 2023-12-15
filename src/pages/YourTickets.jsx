@@ -8,11 +8,6 @@ import axiosSecure from "../api";
 
 const YourTickets = () => {
   const { user } = useContext(AuthContext);
-  console.log(user.email);
-
-  // const url = `https://music-amplitudein-server.vercel.app/myCartTickets?email=${user?.email}`;
-  // // const url = `https://music-amplitudein-server.vercel.app/cartTickets?email=kaili@jenner.com`;
-
   const {
     data: tickets = [],
     isError,

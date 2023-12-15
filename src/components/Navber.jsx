@@ -4,12 +4,14 @@ import { FaX } from "react-icons/fa6";
 import { useContext, useState } from "react";
 import { AuthContext } from "./ProviderContext/AuthProvider";
 import Swal from "sweetalert2";
+import useGetRole from "./hooks/useGetRole";
 
 const Navber = () => {
   const [open, setOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
-  console.log(user?.email);
-  console.log(import.meta.env.VITE_ADMIN_EMAIL);
+  const [userRole, loading] = useGetRole();
+  // console.log(user?.email);
+  // console.log(import.meta.env.VITE_ADMIN_EMAIL);
   
   const handleLogout = () => {
     logOut()
@@ -84,7 +86,7 @@ const Navber = () => {
                   Your Tickets
                 </NavLink>
               </li>
-              {user?.email == import.meta.env.VITE_ADMIN_EMAIL && (
+              {userRole === "admin" && (
                 <li>
                   <NavLink
                     to="/dashboard"
@@ -149,7 +151,7 @@ const Navber = () => {
           </div>
         </div>
         <ul
-          className={`flex flex-col justify-start items-start font-bold text-lg  text-white absolute   gap-4 px-8 py-6 pb-12 bg-red z-10 w-full duration-700 all ${
+          className={`flex flex-col justify-start items-start font-bold text-lg  text-white absolute   gap-4 px-8 py-6 pb-12 bg-black z-10 w-full duration-700 all ${
             open ? "top-16" : "top-[-800px]"
           }`}
         >

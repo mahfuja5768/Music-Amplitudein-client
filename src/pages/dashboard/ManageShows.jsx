@@ -2,19 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import Title from "../../components/hooks/Title";
 import ManageShow from "./ManageShow";
 import { manageShows } from "../../api/auth";
+import useGetAllShows from "../../components/hooks/useGetAllShows";
 
 const ManageShows = () => {
+  const [shows, refetch, isPending, isError] = useGetAllShows();
 
-  const { data, isError, error, isPending, refetch } = useQuery({
-    queryKey: ["shows"],
-    queryFn: async () => {
-      const res = await manageShows();
-      console.log(res.data);
-      return res.data;
-    },
-  });
-
-  //   console.log(data);
+    console.log(shows);
   if (isPending) {
     return (
       <div className="text-center my-8">
@@ -22,16 +15,14 @@ const ManageShows = () => {
       </div>
     );
   }
-  if (isError) {
-    return <p>{error.message}</p>;
-  }
+
 
   return (
     <div>
       <Title>Manage Shows</Title>
-      <h2>Shows: {data?.length}</h2>
+      <h2 className="text-2xl my-2">Shows: {shows?.length}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-        {data.map((show) => (
+        {shows.map((show) => (
           <ManageShow key={show._id} refetch={refetch} show={show}></ManageShow>
         ))}
       </div>

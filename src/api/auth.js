@@ -1,6 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 
 import axiosSecure from ".";
+import useAxiosPublic from "../components/hooks/useAxiosPublic";
+
+
 
 export const saveUser = async (user) => {
   console.log(user);
@@ -22,9 +25,9 @@ const { data } = await axiosSecure.get(`/shows/${id}`);
 return data;
 };
 
-export const manageShows = async (id) => {
+export const manageShows = async () => {
   // console.log(user)
-const { data } = await axiosSecure.get(`/shows/${id}`);
+const { data } = await axiosPublic.get('/shows');
 return data;
 };
 

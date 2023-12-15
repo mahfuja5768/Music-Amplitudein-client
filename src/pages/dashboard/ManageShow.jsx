@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import axiosSecure from "../../api";
 
 const ManageShow = ({ show, refetch }) => {
   // console.log(Object.keys(show).join(','))
@@ -8,12 +9,7 @@ const ManageShow = ({ show, refetch }) => {
     _id,
     bandName,
     date,
-    time,
-    stage,
     img,
-    ticketPrice,
-    descriptions,
-    membersDetails,
   } = show || {};
 
   const handleDelete = () => {
@@ -28,10 +24,7 @@ const ManageShow = ({ show, refetch }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios
-          .delete(`https://music-amplitudein-server.vercel.app/shows/${_id}`, {
-            withCredentials: true,
-          })
+        axiosSecure.delete(`/shows/${_id}`)
           .then(() => {
             Swal.fire("Deleted!", "Show has been deleted.", "success");
             refetch();
@@ -41,7 +34,7 @@ const ManageShow = ({ show, refetch }) => {
     });
   };
 
-  const handleUpdateShow = () => {};
+
   return (
     <div>
       <div className="bg-white mt-12 ">
@@ -62,7 +55,6 @@ const ManageShow = ({ show, refetch }) => {
             </button>
             <Link to={`/dashboard/updateShow/${_id}`}>
               <button
-                onClick={handleUpdateShow}
                 className="btn border-none bg-red text-white rounded-full font-medium px-6 uppercase py-2"
               >
                 update

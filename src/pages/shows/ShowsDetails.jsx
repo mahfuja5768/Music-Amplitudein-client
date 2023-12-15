@@ -9,6 +9,7 @@ import {
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../components/ProviderContext/AuthProvider";
+import axiosSecure from "../../api";
 
 const ShowsDetails = () => {
   const [showDetails] = useLoaderData();
@@ -41,8 +42,7 @@ const ShowsDetails = () => {
       email: user?.email,
     };
     // console.log(ticket);
-    axios
-      .post("https://music-amplitudein-server.vercel.app/cartTickets", ticket)
+    axiosSecure.post("/cartTickets", ticket)
       .then((res) => {
         // console.log(res.data);
         Swal.fire({

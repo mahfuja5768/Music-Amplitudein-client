@@ -2,6 +2,7 @@ import axios from "axios";
 import Title from "../../components/hooks/Title";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import axiosSecure from "../../api";
 
 const AddShows = () => {
   const goTo = useNavigate();
@@ -27,10 +28,8 @@ const AddShows = () => {
     };
     console.log(data);
 
-    axios
-      .post("https://music-amplitudein-server.vercel.app/shows", data, {
-        withCredentials: true,
-      })
+    axiosSecure
+      .post("/shows", data)
       .then((res) => {
         console.log(res.data);
         Swal.fire({

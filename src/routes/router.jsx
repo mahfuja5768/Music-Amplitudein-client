@@ -6,7 +6,6 @@ import YourTickets from "../pages/YourTickets";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
-import ManageTickets from "../pages/dashboard/ManageShows";
 import AddShows from "../pages/dashboard/AddShows";
 import Title from "../components/hooks/Title";
 import Users from "../pages/dashboard/Users";
@@ -16,6 +15,7 @@ import PrivateRoute from "./PrivateRoute";
 import ManageShows from "../pages/dashboard/ManageShows";
 import UpdateShow from "../pages/dashboard/UpdateShow";
 import { getDetails } from "../api/auth";
+
 
 const router = createBrowserRouter([
   {
@@ -80,13 +80,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/dashboard/updateShow/:id",
-            loader: ({ params }) =>
-              fetch(
-                `https://music-amplitudein-server.vercel.app/shows/${params.id}`,
-                {
-                  credentials: "include",
-                }
-              ),
+            loader: ({ params }) => getDetails(params.id),
             element: <UpdateShow></UpdateShow>,
           },
           {
