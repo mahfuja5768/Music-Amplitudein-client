@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import Title from "../../components/hooks/Title";
 import ManageShow from "./ManageShow";
-import { manageShows } from "../../api/auth";
 import useGetAllShows from "../../components/hooks/useGetAllShows";
 
 const ManageShows = () => {

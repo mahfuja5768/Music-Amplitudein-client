@@ -25,12 +25,6 @@ const { data } = await axiosSecure.get(`/shows/${id}`);
 return data;
 };
 
-export const manageShows = async () => {
-  // console.log(user)
-const { data } = await axiosPublic.get('/shows');
-return data;
-};
-
 //clear token from client side
 export const clearToken = async () => {
   localStorage.removeItem("access-token");

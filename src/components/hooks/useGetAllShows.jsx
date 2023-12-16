@@ -8,7 +8,7 @@ const useGetAllShows = () => {
     queryKey: ["shows"],
     queryFn: async () => {
       const res = await axiosPublic.get("/shows");
-      // console.log(res.data);
+      console.log(res.data);
       return res.data;
     },
   });
